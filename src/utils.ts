@@ -30,6 +30,12 @@ const Utils = {
 
   },
 
+  isInsiders () {
+
+    return !!vscode.env.appName.match ( /insiders/i );
+
+  },
+
   folder: {
 
     getRootPath ( basePath? ) {
