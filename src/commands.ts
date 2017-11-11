@@ -13,7 +13,7 @@ import Utils from './utils';
 async function open ( insiders? ) {
 
   const {activeTextEditor} = vscode.window,
-        editorPath = activeTextEditor && activeTextEditor.document.fileName,
+        editorPath = activeTextEditor && activeTextEditor.document.uri.fsPath,
         rootPath = Utils.folder.getRootPath (),
         app = insiders ? 'Visual Studio Code - Insiders' : 'Visual Studio Code',
         appName = insiders ? 'Code Insiders' : 'Code',
