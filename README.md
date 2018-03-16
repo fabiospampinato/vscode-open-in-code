@@ -1,4 +1,4 @@
-# VSC Open in Code
+# Open in Code
 
 <p align="center">
 	<img src="https://raw.githubusercontent.com/fabiospampinato/vscode-open-in-code/master/resources/logo-128x128.png" alt="Logo">
@@ -8,10 +8,10 @@ Switch between Code and Code Insiders with ease.
 
 ## Install
 
-Run the following in the command palette:
+Follow the instructions in the [Marketplace](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-open-in-code), or run the following in the command palette:
 
 ```shell
-ext install vscode-open-in-code
+ext install fabiospampinato.vscode-open-in-code
 ```
 
 ## Usage
