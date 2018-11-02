@@ -3,7 +3,7 @@
   "displayName": "Open in Code",
   "description": "Switch between Code and Code Insiders with ease.",
   "icon": "resources/logo-128x128.png",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "license": "MIT",
   "main": "out/extension.js",
   "publisher": "fabiospampinato",
