@@ -1,7 +1,7 @@
 # Open in Code
 
 <p align="center">
-	<img src="https://raw.githubusercontent.com/fabiospampinato/vscode-open-in-code/master/resources/logo.png" width="128" alt="Logo">
+  <img src="https://raw.githubusercontent.com/fabiospampinato/vscode-open-in-code/master/resources/logo.png" width="128" alt="Logo">
 </p>
 
 Switch between Code and Code Insiders with ease.
