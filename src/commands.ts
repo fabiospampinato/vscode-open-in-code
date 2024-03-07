@@ -1,38 +1,32 @@
 
 /* IMPORT */
 
-import * as _ from 'lodash';
-import * as absolute from 'absolute';
-import * as openPath from 'open';
-import * as path from 'path';
-import * as vscode from 'vscode';
-import Utils from './utils';
+import {spawn} from 'node:child_process';
+import vscode from 'vscode';
+import {getActiveFilePath, getProjectRootPaths, isInsiders} from 'vscode-extras';
+import {isString} from './utils';
 
-/* COMMANDS */
+/* MAIN */
 
-async function open ( insiders? ) {
+const open = ( insiders?: boolean ): void => {
 
-  const {activeTextEditor} = vscode.window,
-        editorPath = activeTextEditor && activeTextEditor.document.uri.fsPath,
-        rootPath = Utils.folder.getRootPath (),
-        app = insiders ? 'Visual Studio Code - Insiders' : 'Visual Studio Code',
-        appName = insiders ? 'Code Insiders' : 'Code',
-        paths = [];
+  const filePath = getActiveFilePath ();
+  const folderPaths = getProjectRootPaths ();
+  const targetPaths = [...folderPaths, filePath].filter ( isString );
 
-  if ( rootPath ) paths.push ( rootPath );
-  if ( editorPath && absolute ( editorPath ) ) paths.push ( editorPath );
+  const app = insiders ?? isInsiders () ? 'code-insiders' : 'code';
 
-  if ( !paths.length ) return vscode.window.showErrorMessage ( `You have to open a file or project before being able to open it in ${appName}` );
+  if ( !targetPaths.length ) return void vscode.window.showErrorMessage ( `You have to open a file or project before being able to open it in "${app}"` );
 
-  paths.forEach ( path => openPath ( path, app ) );
+  spawn ( app, targetPaths, { detached: true } );
 
-}
+};
 
-function openInsiders () {
+const openInsiders = (): void => {
 
   return open ( true );
 
-}
+};
 
 /* EXPORT */
 
