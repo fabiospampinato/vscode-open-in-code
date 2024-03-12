@@ -1,9 +1,7 @@
 
 /* IMPORT */
 
-import {spawn} from 'node:child_process';
-import vscode from 'vscode';
-import {getActiveFilePath, getProjectRootPaths, isInsiders} from 'vscode-extras';
+import {alert, exec, getActiveFilePath, getProjectRootPaths, isInsiders} from 'vscode-extras';
 import {isString} from './utils';
 
 /* MAIN */
@@ -16,9 +14,9 @@ const open = ( insiders?: boolean ): void => {
 
   const app = insiders ?? isInsiders () ? 'code-insiders' : 'code';
 
-  if ( !targetPaths.length ) return void vscode.window.showErrorMessage ( `You have to open a file or project before being able to open it in "${app}"` );
+  if ( !targetPaths.length ) return alert.error ( `You have to open a file or project before being able to open it in "${app}"` );
 
-  spawn ( app, targetPaths, { detached: true } );
+  exec ( app, targetPaths, { detached: true } );
 
 };
 
