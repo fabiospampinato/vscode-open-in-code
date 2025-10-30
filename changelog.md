@@ -2,7 +2,7 @@
 - Minor internal improvements
 
 ### Version 2.0.0
-- Rewitten: more modern code, no third-party dependencies, 98% smaller bundle
+- Rewritten: more modern code, no third-party dependencies, 98% smaller bundle
 
 ### Version 1.1.6
 - Readme: using hi-res logo
